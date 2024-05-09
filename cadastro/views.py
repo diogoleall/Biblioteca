@@ -23,13 +23,13 @@ def getRoutes(request):
 
 @api_view(["GET", "POST"])
 @permission_classes([IsAuthenticated])
-def testeEndPoint(request):
-    if request.method == "GET"
-        data = f"Parabéns seu cadastro"
+def testEndPoint(request):
+    if request.method == "GET":
+        data = f"Parabéns seu cadastro foi feito com sucesso!"
         return Response ({"response":data}, status=status.HTTP_200_OK)
     elif request.method == 'POST':
         text = "Hello buddy"
-        data = f"Parabéns seu cadastro respondeu ao seu POST request com otexto:{text}"
+        data = f"Parabéns seu cadastro respondeu ao seu POST request com o texto:{text}"
         return Response ({'response':data}, status=status.HTTP_200_OK)
     return Response ({}, status.HTTP_400_BAD_REQUEST)
     

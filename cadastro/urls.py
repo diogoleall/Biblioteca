@@ -1,7 +1,14 @@
 from django.urls import path
-from .views import LivroListCreateView, LivroDetailView
+from .import views
+
+from rest_framework_simplejwt.views import (
+   TokenRefreshView,
+)
 
 urlpatterns = [
-    path('livro/', LivroListCreateView.as_view(), name='livro-list-create'),
-    path('livro/<int:pk>/', LivroDetailView.as_view(), name='livro-detail'),
+    path('token/', views.LivroListCreateView.as_view(), name='livro_list_create'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('register/', views.RegisterView.as_view(), name='auth_register'),
+    path('test/', views.testEndPoint, name='test'),
+    path('', views.getRoutes),
 ]
